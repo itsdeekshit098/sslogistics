@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: sslogistics
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/sslogistics
+    username: postgres
+    password: hansi
+
+  sql:
+    init:
+      mode: always
+
+logging:
+  level:
+    org.springframework.r2dbc: debug
