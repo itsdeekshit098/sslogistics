@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: sslogistics
+
+  datasource:
+    url: jdbc:postgresql://dpg-d0peeiodl3ps73an2omg-a.singapore-postgres.render.com:5432/sslogistics_gnqx
+    username: hansi
+    password: 5iOQiCpKoatIFJ3aVFkudHhqKxepyYx1
+
+  sql:
+    init:
+      mode: always
+
+logging:
+  level:
+    org.springframework.r2dbc: debug
