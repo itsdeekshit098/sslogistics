@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/v1")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 public class Controller {
 
     private final BusService busService;
@@ -35,5 +35,17 @@ public class Controller {
     public Flux<Trip> getTrips(){
         return tripService.getTrips();
     }
+
+    /
+
+    @GetMapping("/trips/{busNo}")
+    public Flux<Trip> getTripsByBusAndDateRange(
+            @PathVariable String busNo,
+            @RequestParam String startDate,
+            @RequestParam String endDate) {
+
+        return tripService.getTripsByBusAndDateRange(busNo, startDate, endDate);
+    }
+
 
 }
