@@ -36,7 +36,10 @@ public class Controller {
         return tripService.getTrips();
     }
 
-    /
+//    @GetMapping("/trips/hansi")
+//    public Flux<Trip> getTripsByBus(@PathVariable String busNo){
+//        return tripService.getTripsByBus(busNo);
+//    }
 
     @GetMapping("/trips/{busNo}")
     public Flux<Trip> getTripsByBusAndDateRange(
