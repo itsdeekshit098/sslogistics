@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.time.LocalDate;
+
 @Table("trips")
 public class Trip {
     @Id
@@ -18,13 +20,17 @@ public class Trip {
     @Column("ending_km")
     private String endingKm;
 
+    @Column("date")
+    private LocalDate date;
+
     public Trip() {}
 
-    public Trip(Long id, String busNo, String startingKm, String endingKm) {
+    public Trip(Long id, String busNo, String startingKm, String endingKm, LocalDate date) {
         this.id = id;
         this.busNo = busNo;
         this.startingKm = startingKm;
         this.endingKm = endingKm;
+        this.date = date;
     }
 
     // Getters and Setters
@@ -39,4 +45,7 @@ public class Trip {
 
     public String getEndingKm() { return endingKm; }
     public void setEndingKm(String endingKm) { this.endingKm = endingKm; }
+
+    public LocalDate getDate() { return date; }
+    public void setDate(LocalDate date) { this.date = date; }
 }

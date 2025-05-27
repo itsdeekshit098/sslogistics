@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Allow all endpoints, or restrict to "/v1/**"
-                .allowedOrigins("http://localhost:5173") // Your Vue dev server
+                .allowedOrigins("*") // Your Vue dev server
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*");
     }

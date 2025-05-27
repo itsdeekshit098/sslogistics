@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 @Service
 public class TripService {
 
@@ -21,5 +24,15 @@ public class TripService {
 
     public Flux<Trip> getTrips(){
         return tripRepository.findAll();
+    }
+
+    public Flux<Trip> getTripsByBus(String busNo) {
+        return tripRepository.findByBusNo(busNo);
+    }
+
+    public Flux<Trip> getTripsByBusAndDateRange(String busNo, String startDate, String endDate) {
+        LocalDate start = LocalDate.parse(startDate, DateTimeFormatter.ISO_DATE);
+        LocalDate end = LocalDate.parse(endDate, DateTimeFormatter.ISO_DATE);
+        return tripRepository.findByBusNoAndDateBetween(busNo, start, end);
     }
 }
